@@ -1,0 +1,14 @@
+runtime: python37
+
+handlers:
+- url: /
+  static_files: index.html
+  upload: index.html
+  secure: always
+# access the static resources in the root directory
+- url: /(.*)
+  static_files: \1
+  upload: (.*)
+  secure: always
+  
+# gcloud app deploy --version dummy .
